@@ -1,0 +1,54 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch React App in Edge",
+            "request": "launch",
+            "type": "msedge",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/frontend",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///src/*": "${webRoot}/src/*",
+                "webpack:///./*": "${webRoot}/*",
+                "webpack:///./~/*": "${webRoot}/node_modules/*",
+                "/./*": "${webRoot}/*"
+            },
+            "smartStep": true,
+            "skipFiles": [
+                "<node_internals>/**",
+                "${workspaceFolder}/frontend/node_modules/**"
+            ]
+        },
+        {
+            "name": "Launch React App in Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/frontend",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///src/*": "${webRoot}/src/*",
+                "webpack:///./*": "${webRoot}/*",
+                "webpack:///./~/*": "${webRoot}/node_modules/*",
+                "/./*": "${webRoot}/*"
+            },
+            "smartStep": true,
+            "skipFiles": [
+                "<node_internals>/**",
+                "${workspaceFolder}/frontend/node_modules/**"
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch React App with Dev Server",
+            "configurations": [],
+            "preLaunchTask": "Start Vite Dev Server with Debug",
+            "stopAll": true
+        }
+    ]
+}

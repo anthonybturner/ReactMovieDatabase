@@ -1,0 +1,240 @@
+.modal-main{
+  display: flex;
+  gap: 1rem;
+
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.411);  backdrop-filter: blur(4px);
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+ @media (min-width: 0px) and (max-width: 600px) {
+  width: 90vw;
+  flex-direction: column;
+    
+ }
+}
+
+.modal-content {
+  background: linear-gradient(135deg, rgba(204, 203, 203, 0.4) 0%, rgba(160, 160, 160, 0.1) 100%);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  border: 2px solid rgba(157, 3, 196, 0.3);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  max-width: 1000px;
+  max-height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  animation: modalSlideIn 0.3s ease-out;
+  z-index: 2147483647;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2147483647;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.modal-poster {
+  flex-shrink: 0;
+}
+
+.modal-poster img {
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.modal-info {
+  flex: 1;
+  
+}
+
+.modal-info h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2.4rem;
+  background: linear-gradient(135deg, #fff 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Marquee container */
+.title-marquee {
+  width: 100%;
+  max-width: 400px; /* Adjust based on your modal width */
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* Marquee text animation */
+.marquee-text {
+  display: inline-block;
+  margin: 0;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #fff 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.3s ease;
+}
+
+/* Only animate if text needs scrolling */
+.marquee-text.animate-marquee {
+  animation: marquee 12s linear infinite;
+  padding-left: 150%;
+}
+
+/* Pause animation on hover */
+.marquee-text.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-70%, 0, 0);
+  }
+}
+
+.movie-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.meta-item span{
+  color: #fff;
+}
+
+.meta-item svg {
+  color: #a855f7;
+}
+
+.movie-overview h3 {
+  color: #a855f7;
+  margin-bottom: 0.5rem;
+}
+
+.movie-overview p {
+  line-height: 1.6;
+  color: rgb(255, 255, 255);
+  margin-bottom: 1.5rem;
+}
+
+.movie-details {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row strong {
+  color: #a855f7;
+  padding: 0 8px;
+}
+
+.detail-row span {
+  color: rgb(255, 255, 255);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .modal-main{
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-body {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .modal-poster img {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .modal-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .movie-meta {
+    justify-content: center;
+  }
+}
+

@@ -1,0 +1,226 @@
+.home{
+       --card-width: max(200px, min(300px, calc(100vw - 2rem) / 4));
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Animated Background Container */
+.home::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: 
+        radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(148, 179, 12, 0.15), transparent 40%);
+    pointer-events: none;
+}
+.home::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+.home .movies-grid{
+   display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
+    box-sizing: border-box;
+    gap: 1rem;
+    @media(min-width: 0px) and (max-width: 600px) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+/* Add subtle glow effect to match Vite */
+/* Add subtle glow effect to match Vite */
+header h1 {
+    background: linear-gradient(90deg, #ffffff 0%, #a855f7 50%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+img.hero {
+     @media(min-width: 0px) and (max-width: 600px) {
+        width: 450px;
+     }
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #a855f7 0%, #ec4899 50%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+/* Individual floating orbs */
+
+/* Floating orbs - much smaller and more subtle like Vite */
+.floating-orb {
+    position: fixed; /* Changed from absolute to fixed */
+    border-radius: 50%;
+    pointer-events: none;
+    width: 15px;
+    height: 15px;
+    z-index: -1;
+    opacity: 1; /* Increased opacity to make them more visible */
+}
+
+.floating-orb:nth-child(1) {
+    
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.6) 0%, rgba(139, 92, 246, 0.3) 50%, transparent 70%);
+    top: 10vh;
+    left: 10vw;
+    animation: viteFloat1 15s ease-in-out infinite;
+}
+
+.floating-orb:nth-child(2) {
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, rgba(236, 72, 153, 0.3) 50%, transparent 70%);
+    top: 60vh;
+    right: 10vw;
+    animation: viteFloat2 18s ease-in-out infinite;
+}
+
+.floating-orb:nth-child(3) {
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.6) 0%, rgba(34, 197, 94, 0.3) 50%, transparent 70%);
+    bottom: 20vh;
+    left: 30vw;
+    animation: viteFloat3 20s ease-in-out infinite;
+}
+
+.floating-orb:nth-child(4) {
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.6) 0%, rgba(251, 191, 36, 0.3) 50%, transparent 70%);
+    top: 30vh;
+    left: 70vw;
+    animation: viteFloat4 12s ease-in-out infinite;
+}
+/* Enhanced wrapper with backdrop blur */
+.wrapper {
+   backdrop-filter: blur(12px) saturate(180%);
+    background: rgba(17, 25, 40, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 
+        0 8px 32px rgba(31, 38, 135, 0.37),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
+    margin-bottom: 1rem;
+    padding: 1rem;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+form input{
+
+    border-radius: 6px;
+    background: #959292;
+    color: #fff;
+    border: 1px solid #ccc;
+    padding: 0.6em 1.2em;    
+}
+
+form input::placeholder{
+    color: #fff;
+
+}
+form button{
+    background: #000507;
+    color: #fff;
+    width: 100px;
+    
+}
+
+.loading-spinner{
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top: 5px solid blue;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+
+/* Vite.dev style animations - subtle and organic */
+@keyframes viteFloat1 {
+    0% { 
+        transform: translate(0vw, -3vh) scale(1.1); /* Start position */
+    }
+    50% {
+        transform: translate(53vw, -3vh) scale(1.7); /* 25% of screen width */
+    }
+    75% {
+        transform: translate(22vw, -3vh) scale(0.9); /* 30% of screen width */
+    }
+    90% {
+        transform: translate(80vw, -3vh) scale(1.7); /* Return to 25% */
+    }
+    100% {
+        transform: translate(100vw, -3vh) scale(1.7); /* Return to 25% */
+    }
+}
+
+@keyframes viteFloat2 {
+    0%, 100% { 
+        transform: translate(0px, 0px) scale(1);
+    }
+    33% { 
+        transform: translate(-40px, -30px) scale(1.2);
+    }
+    66% { 
+        transform: translate(20px, 40px) scale(0.8);
+    }
+}
+
+@keyframes viteFloat3 {
+    0%, 100% { 
+        transform: translate(0px, 0px) scale(1);
+    }
+    20% { 
+        transform: translate(40px, 20px) scale(1.15);
+    }
+    40% { 
+        transform: translate(-30px, 50px) scale(0.85);
+    }
+    60% { 
+        transform: translate(15px, -35px) scale(1.1);
+    }
+    80% { 
+        transform: translate(-25px, -15px) scale(0.95);
+    }
+}
+
+@keyframes viteFloat4 {
+    0%, 100% { 
+        transform: translate(0px, 0px) scale(1);
+    }
+    50% { 
+        transform: translate(-30px, 50px) scale(1.3);
+    }
+}

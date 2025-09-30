@@ -1,0 +1,48 @@
+.movie-card{
+    border: 1px solid #ccc;
+    border-radius: 4px 4px 4px 4px;
+    background: rgba(255, 255, 255, 0.1);   /* transparent base */
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);    /* Safari support */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* soft depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    flex: 1;
+    z-index: 1;
+    position: relative;
+}
+.movie-card:hover{
+    box-shadow: 1px 1px 1px #17f303;
+    transform: scale(1.01);
+}
+
+.movie-info{
+    color: #fff;
+    border-top: 1px solid #ccc;
+    padding: 12px;
+}
+.movie-info h3, .movie-info p{
+    margin: 0;
+}
+.movie-card img{
+    border-radius: 8px 8px 0 0 ;
+    width: 100%;
+
+}
+
+.active{
+    color: yellow !important;
+}
+.movie-overlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.movie-overlay button{
+    background: #ffffff00;
+    color: #fff;
+    border: none;
+    border-radius: 20%;
+}

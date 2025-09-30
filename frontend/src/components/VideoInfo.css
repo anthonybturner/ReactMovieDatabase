@@ -1,0 +1,151 @@
+/* Video Section Styles */
+.video-section {
+  margin: 1.5rem 0;
+}
+
+.video-section h3 {
+  color: #a855f7;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.loading-videos {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 1rem;
+}
+
+.main-video {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.main-video iframe {
+  border-radius: 8px;
+}
+
+.video-title {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+  padding: 0 0.5rem;
+}
+
+.video-thumbnails {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.5) transparent;
+}
+
+.video-thumbnails::-webkit-scrollbar {
+  height: 4px;
+}
+
+.video-thumbnails::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.video-thumbnails::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.5);
+  border-radius: 2px;
+}
+
+.video-thumbnail {
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.05);
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+.video-thumbnail.active {
+  border-color: #a855f7;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+}
+
+.thumbnail-wrapper {
+  position: relative;
+  width: 120px;
+  height: 68px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.video-thumbnail:hover .thumbnail-wrapper img {
+  transform: scale(1.1);
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  transition: all 0.2s ease;
+}
+
+.video-thumbnail:hover .play-overlay {
+  background: rgba(168, 85, 247, 0.9);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.thumbnail-title {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 120px;
+}
+
+/* Mobile video responsiveness */
+@media (max-width: 600px) {
+  .main-video iframe {
+    width: 400px;
+    height: 200px;
+  }
+  
+  .video-thumbnails {
+    gap: 0.5rem;
+  }
+  
+  .thumbnail-wrapper {
+    width: 200px;
+    height: 100px;
+  }
+  
+  .thumbnail-title {
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+}
